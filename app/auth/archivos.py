@@ -31,11 +31,14 @@ def primerCaptur():
             if len(approx) == 4 and area > 1000:
                 aspect_ratio = float(w)/h
                 if aspect_ratio >0.5:
-                    cv.drawContours(roi, [c],0,(0,255,0),2)
+                    placa = gray[y:y+h, x:x+w]
+                    cv.imshow("placa", placa)
+                    number = 1
+                    cv.imwrite(f'frame{number}.jpg', placa)
+                
                 ''''
                 count = 0
                 for i in range(1):
-                    if True:
                         cv.imwrite(f'frame{count}.jpg', roi)
                         count = count+1
                         imagen = cv.imread(f'frame{count}.jpg')
@@ -45,7 +48,7 @@ def primerCaptur():
                         '''
         #cv.imshow("Video", frame1)
         cv.imshow("roi", roi)
-        if cv.waitKey(80) & 0xFF == ord("s"):
+        if cv.waitKey(5) & 0xFF == ord("s"):
             break
     video1.release()
     cv.destroyAllWindows()
