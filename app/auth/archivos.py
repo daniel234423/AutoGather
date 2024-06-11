@@ -1,4 +1,5 @@
 import cv2 as cv
+import re
 import numpy as np
 import os
 from PIL import Image
@@ -7,6 +8,8 @@ import pytesseract
 video1 = cv.VideoCapture("app/static/video/uni.mp4")        
 rect_0=0
 def primerCaptur():
+    placas = []
+    placa_format = r"^([A-Z]{3}-[0-9]{3}-[A-Z]{1})|([A-Z]{3}-[0-9]{2}-[0-9]{2})$"
     while True:
         ret1, frame1 = video1.read()
 
@@ -28,9 +31,9 @@ def primerCaptur():
             x,y,w,h = cv.boundingRect(c)
             epsilon = 0.09*cv.arcLength(c, True)
             approx = cv.approxPolyDP(c ,epsilon, True)
-            if len(approx) == 4 and area > 1000:
+            if len(approx) == 4 and area > 2000:
                 aspect_ratio = float(w)/h
-                if aspect_ratio >0.5:
+                if aspect_ratio >0.9:
                     placa = gray[y:y+h, x:x+w]
                     cv.imshow("placa", placa)
                     number = 1
@@ -38,7 +41,10 @@ def primerCaptur():
                     data = cv.imread(f'frame{number}.jpg')
                     
                     datos = pytesseract.image_to_string(data,  config="--psm 11")
-                    print(datos)
+                    
+                    if re.match(placa_format, placas):
+                        if datos.trim() not in placas:
+                            placas.append(datos.trim()) 
 
         #cv.imshow("Video", frame1)
         cv.imshow("roi", roi)
