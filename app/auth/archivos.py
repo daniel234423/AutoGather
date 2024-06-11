@@ -5,7 +5,7 @@ from PIL import Image
 import pytesseract
 
 video1 = cv.VideoCapture("app/static/video/uni.mp4")        
-
+rect_0=0
 def primerCaptur():
     while True:
         ret1, frame1 = video1.read()
@@ -35,17 +35,11 @@ def primerCaptur():
                     cv.imshow("placa", placa)
                     number = 1
                     cv.imwrite(f'frame{number}.jpg', placa)
-                
-                ''''
-                count = 0
-                for i in range(1):
-                        cv.imwrite(f'frame{count}.jpg', roi)
-                        count = count+1
-                        imagen = cv.imread(f'frame{count}.jpg')
-                        img_rgb = cv.cvtColor(imagen, cv.COLOR_BGR2RGB)
-                        img_rgb = Image.frombytes('RGB', imagen.shape[:2], imagen, 'raw', 'BGR', 0, 0)
-                        print(pytesseract.image_to_string(img_rgb))
-                        '''
+                    data = cv.imread(f'frame{number}.jpg')
+                    
+                    datos = pytesseract.image_to_string(data,  config="--psm 11")
+                    print(datos)
+
         #cv.imshow("Video", frame1)
         cv.imshow("roi", roi)
         if cv.waitKey(5) & 0xFF == ord("s"):
