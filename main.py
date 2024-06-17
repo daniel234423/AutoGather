@@ -1,3 +1,5 @@
+from flask import Flask
+from app.auth.routes import app
 
-import keras
-print(keras.__version__)
+app = app
+app.run(debug=True)
