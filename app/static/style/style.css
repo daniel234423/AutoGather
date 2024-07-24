@@ -1,0 +1,101 @@
+nav {
+  background-color: rgb(5, 5, 5);
+}
+.navbar-brand {
+  color: white !important;
+}
+article {
+  display: flex;
+  margin-top: 40px;
+  margin-bottom: 0%;
+  justify-content: center;
+  align-items: center;
+}
+article img {
+  width: 20%;
+}
+
+.footer {
+  background-color: black !important;
+  padding: 20px;
+  margin-top: 35vh;
+  height: auto;
+  text-align: center;
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer .col-md-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer li {
+  margin-right: 20px;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #ccc;
+}
+
+.footer .fab {
+  font-size: 24px;
+  margin-right: 10px;
+}
+.contenedor_item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  justify-content: center;
+}
+
+.item_nav {
+  list-style: none;
+  color: #fff;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+}
+nav {
+  background-color: black !important  ;
+}
+
+nav ul li a {
+  background-color: #fff;
+  color: white !important;
+  text-decoration: none;
+  border-radius: 50% 10% 50% 10% / 10% 50% 10% 50%;
+  cursor: pointer;
+}
