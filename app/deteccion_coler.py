@@ -5,8 +5,8 @@ from tensorflow import keras
 import cv2 as cv
 
 # Directorios de entrenamiento y prueba
-train_dir = 'app/static/dataset'
-test_dir = 'app/static/dataset'
+train_dir = 'app/static/dataset_color'
+test_dir = 'app/static/dataset_color'
 
 # Crear generador de imágenes con augmentation
 datagen = tf.keras.preprocessing.image.ImageDataGenerator(
@@ -49,4 +49,4 @@ modeloConv2.compile(optimizer='adam', loss='categorical_crossentropy', metrics=[
 # Entrenar modelo
 modeloConv2.fit(data_gen_entrenamiento, epochs=50, batch_size=32, validation_data=data_gen_pruebas)
 
-modeloConv2.save("ModeloAuto.keras")
+modeloConv2.save("ModeloColores.keras")
