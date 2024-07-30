@@ -11,14 +11,14 @@
         <tbody>
             <tr>
                 <th scope="row">Color</th>
-                {% for vheiculos in info %}
-                <th>{{vheiculos.tipo_vehiculo}}</th>
+                {% for color in info %}
+                <th>{{color.color}}</th>
                 {% endfor %}
             </tr>
             <tr>
                 <th scope="row">Tipo de Vheiculo</th>
-                {% for color in info %}
-                <th>{{color.color}}</th>
+                {% for vheiculos in info %}
+                <th>{{vheiculos.tipo_vehiculo}}</th>
                 {% endfor %}
             </tr>
 
