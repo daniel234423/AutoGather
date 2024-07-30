@@ -1,15 +1,17 @@
 # importar la función que devolverá una instancia de una conexión
 from ..config.db import connectToMySQL
 # modelar la clase después de la tabla friend de nuestra base de datos
-class Tarea:
+class Info:
     def __init__( self , data ):
-        self.id = data['tareId']
-        self.nombre = data['nombre']
+        self.id = data['id']
+        self.matricual = data['matricula']
+        self.tipo_vehiculo = data['tipo_vehiculo']
+        self.color = data['color']
 
     # ahora usamos métodos de clase para consultar nuestra base de datos
     @classmethod
     def get_all(cls):
-        query = "SELECT * FROM tareas;"
+        query = "SELECT * FROM informacion;"
         results = connectToMySQL('autogather').query_db(query, data=None)
         if results is False: 
             return []  # Devolver una lista vacía si hubo un error

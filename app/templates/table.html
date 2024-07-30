@@ -3,22 +3,34 @@
         <thead>
             <tr>
                 <th scope="row">Matricula</th>
-
+                {% for matriculas in info %}
+                <th>{{matriculas.matricual}}</th>
+                {% endfor %}
             </tr>
         </thead>
         <tbody>
             <tr>
                 <th scope="row">Color</th>
-
+                {% for vheiculos in info %}
+                <th>{{vheiculos.tipo_vehiculo}}</th>
+                {% endfor %}
             </tr>
             <tr>
                 <th scope="row">Tipo de Vheiculo</th>
-
+                {% for color in info %}
+                <th>{{color.color}}</th>
+                {% endfor %}
             </tr>
 
         </tbody>
 
     </table>
+</section>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</table>
 </section>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>

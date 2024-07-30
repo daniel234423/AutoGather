@@ -4,7 +4,7 @@ import re
 import numpy as np
 import os
 from .modelo import predict_image, color
-from .model.queries import Tarea
+from .model.queries import Info
 
 
 #Fucnion principal (genera el video que quiero mostrar en la pagina web)
@@ -26,9 +26,8 @@ def Generate_Frame(video):
             matriculasss.append(placa)
             model = predict_image(img)
             model_color = color(img)
-            print(model)
-            print(model_color)
-            print(placa)
+            print(matriculasss[-1])
+            Info.post_all([matriculasss[-1]], model, model_color)
         (flag, encodedImage) = cv2.imencode(".jpg", frame)
         # Produce un marco de datos multipart/form-data con una imagen JPEG codificada
         yield(b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + bytearray(encodedImage) + b'\r\n' )
