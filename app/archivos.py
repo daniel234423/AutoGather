@@ -54,7 +54,7 @@ def Generate_Matricula(frame, ret, gray, cnt):
         x,y,w,h = cv2.boundingRect(c)
         epsilon = 0.09*cv2.arcLength(c, True)
         approx = cv2.approxPolyDP(c ,epsilon, True)
-        if len(approx) == 4 and area >= 2000 :
+        if len(approx) == 4 and area >= 2500 :
             cv2.imwrite(f'app/static/img/frame.jpg', roi2)
             aspect_ratio = float(w)/h
             if aspect_ratio >0.5 or aspect_ratio < 1:
