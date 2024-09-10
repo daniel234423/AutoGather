@@ -33,9 +33,6 @@ def Generate_Frame(video):
         yield(b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + bytearray(encodedImage) + b'\r\n' )
 
 
-
-            
-
 def Generate_Matricula(frame, ret, gray, cnt):
     placas = []
     placa_format = r"^[A-Z]{3}-\d{3}$"
@@ -65,7 +62,5 @@ def Generate_Matricula(frame, ret, gray, cnt):
                 if re.search(placa_format, datos) or re.search(placa_format_cl, datos):
                     if datos.strip() not in placas:
                         placas.append(datos.strip())
-                        
-                        
                         return(datos)
 
