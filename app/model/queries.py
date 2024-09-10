@@ -12,7 +12,7 @@ class Info:
     @classmethod
     def get_all(cls):
         query = "SELECT * FROM informacion;"
-        results = connectToMySQL('autogather').query_db(query, data=None)
+        results = connectToMySQL('AutoGather').query_db(query, data=None)
         if results is False: 
             return []  # Devolver una lista vacía si hubo un error
         friends = []
@@ -23,6 +23,6 @@ class Info:
     def post_all(cls, matricula, tipo_vehiculo, color):
         query = "insert into informacion (matricula, tipo_vehiculo, color) values (%s, %s, %s);"
         # asegúrate de llamar a la función connectToMySQL con el esquema al que te diriges
-        result = connectToMySQL('autogather').query_db(query, (matricula, tipo_vehiculo, color,))
+        result = connectToMySQL('AutoGather').query_db(query, (matricula, tipo_vehiculo, color,))
         return result
 

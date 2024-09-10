@@ -20,6 +20,23 @@
     {% block navbar %}
     {% include "nav.html" %}
     {% endblock navbar %}
+    <section>
+        <article>
+            <img id=imagen src="{{ url_for('video') }}" alt="aaa">
+            <form action="/upload_video" method="post" enctype="multipart/form-data">
+                <input type="file" name="video" accept="video/*">
+                <button type="submit">Subir video</button>
+            </form>
+        </article>
+        {% block table %}
+        {% include "table.html" %}
+        {% endblock table %}
+    </section>
+    {% block footer %}
+    {% include "footer.html" %}
+    {% endblock footer %}
+
 </body>
+
 
 </html>
