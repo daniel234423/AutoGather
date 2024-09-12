@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 import tensorflow as tf
 from tensorflow import keras
 import cv2 as cv
@@ -35,13 +34,12 @@ modeloConv2 = tf.keras.models.Sequential([
     tf.keras.layers.MaxPooling2D(2, 2),
     tf.keras.layers.Conv2D(1024, (3, 3), activation='relu'),
     tf.keras.layers.MaxPooling2D(2, 2),
-    tf.keras.layers.Conv2D(2048, (3, 3), activation='relu'),
-    tf.keras.layers.MaxPooling2D(2, 2),
     tf.keras.layers.Dropout(0.5),
     tf.keras.layers.Flatten(),
-    tf.keras.layers.Dense(1000, activation='relu'),
-    tf.keras.layers.Dense(3, activation='softmax')
+    tf.keras.layers.Dense(900, activation='relu'),
+    tf.keras.layers.Dense(3, activation='softmax')  # 5 clases: blanco, rojo, negro, gris, azul
 ])
+
 
 # Compilar modelo
 modeloConv2.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
