@@ -1,0 +1,2 @@
+app/model/ModeloAuto.keras filter=lfs diff=lfs merge=lfs -text
+app/model/ModeloColores.keras filter=lfs diff=lfs merge=lfs -text
