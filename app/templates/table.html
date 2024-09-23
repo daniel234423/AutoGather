@@ -1,0 +1,28 @@
+<section class="table-responsive">
+    <table class="table ">
+        <thead>
+            <tr>
+                <th scope="row">Matricula</th>
+                {% for matriculas in info %}
+                <th>{{matriculas.matricual}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Color</th>
+                {% for color in info %}
+                <th>{{color.color}}</th>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th scope="row">Tipo de Vheiculo</th>
+                {% for vheiculos in info %}
+                <th>{{vheiculos.tipo_vehiculo}}</th>
+                {% endfor %}
+            </tr>
+
+        </tbody>
+
+    </table>
+</section>
