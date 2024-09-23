@@ -1,0 +1,57 @@
+:root {
+  --main-ft-family: "Contrail One", sans-serif;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-image: url("img/MATRICULAAUTO-removebg-preview.png");
+  background-size: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+}
+.container-red {
+  background-color: #9f111b;
+  font-family: var(--main-ft-family);
+  font-weight: 400;
+  font-style: normal;
+  width: 20%; /* reduce width to make them narrower */
+  height: 450px; /* increase height to make them taller */
+  padding: 20px;
+  border-radius: 25px;
+  color: white;
+  font-size: 20px; /* reduce font size */
+  text-align: center;
+  position: absolute; /* add absolute positioning */
+  top: 20%; /* position 20% from the top */
+  left: 5%; /* adjust horizontal position to the left */
+  transform: translateX(0); /* remove horizontal adjustment */
+  margin: 0 20px; /* add margin to prevent sticking to edges */
+}
+
+.container-blue {
+  background-color: #292c37;
+  font-family: var(--main-ft-family);
+  font-weight: 400;
+  font-style: normal;
+  width: 20%; /* reduce width to make them narrower */
+  height: 450px; /* increase height to make them taller */
+  padding: 20px;
+  border-radius: 25px;
+  color: white;
+  font-size: 20px; /* reduce font size */
+  text-align: center;
+  position: absolute; /* add absolute positioning */
+  bottom: 20%; /* position 20% from the bottom */
+  right: 5%; /* adjust horizontal position to the right */
+  transform: translateX(0); /* remove horizontal adjustment */
+  margin: 0 20px; /* add margin to prevent sticking to edges */
+}

@@ -1,5 +1,5 @@
 from app.routes import app
 
-app = app
-app.run(debug=True)
-#El benja es weko
+if __name__=='__main__':
+    app = app
+    app.run(debug=True)     
