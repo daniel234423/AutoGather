@@ -1,0 +1,160 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.contenedor {
+  width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #292c37;
+  border: 1px solid #292c37;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.lr {
+  display: flex;
+  align-items: center;
+  gap: 300px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #9f111b;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+input[type="text"] {
+  background-color: #9f111b;
+  border-color: black;
+}
+
+input[type="email"] {
+  background-color: #9f111b;
+  border-color: black;
+}
+
+input[type="password"] {
+  border-color: black;
+  background-color: #9f111b;
+}
+
+input[type="checkbox"] {
+  height: 20px;
+}
+
+.lbel {
+  color: #fff;
+  display: flex;
+}
+
+.botones {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  background-color: #292c37;
+}
+
+.submit {
+  background-color: #9f111b;
+  height: 30px;
+  width: 100px;
+  margin-bottom: 15px;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: -5px 5px 0 black;
+  cursor: pointer;
+}
+
+.btn {
+  display: flex;
+  height: 50px;
+  width: 40%;
+  gap: 30px;
+  align-items: center;
+  justify-content: space-around;
+  color: #fff;
+  background-color: #292c37;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: transparent;
+  transition: color 0.3s, opacity 0.3s;
+}
+
+.btn.active {
+  color: rgb(255, 255, 255);
+  font-size: 60px;
+  opacity: 3;
+}
+
+.btn.inactive {
+  color: #fff;
+  opacity: 0.5;
+}
+
+.btn:hover {
+  font-size: 20px;
+  color: #fff;
+}
+
+h6 {
+  color: #fff;
+}
+
+.mostrar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.mostrar h6 {
+  margin-right: 20px;
+}
+
+.contenedor {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+}
+
+.formulario {
+  display: none;
+  margin-top: 20px;
+}
+.visible {
+  display: block;
+}
