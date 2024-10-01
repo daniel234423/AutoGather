@@ -3,6 +3,5 @@ from .configs import Config
 def crear_app():
     app = Flask(__name__)
     app.config.from_object(Config)
-    app.secret_key(Config.SECRET_KEY)
     return app
 
