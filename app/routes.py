@@ -4,6 +4,7 @@ from .model.queries import Info
 from .archivos import Generate_Frame
 from flask_bcrypt import Bcrypt
 import cv2 as cv
+from .model.usuarios import Users
 
 app = crear_app()
 bcrypt = Bcrypt(app)
@@ -40,16 +41,14 @@ def register():
     if not email or len(email) < 3:
         errors.append("email invalido")
     
-    #ESTO SE USARA CUANDO SE LINKE LA BASE DE DATOS 
-    #users = Usuario.select_by_email(email)
-    #if len(users) > 0:
-    #    errors.append("El usuario ya está registrado")
+    user = Users.login_by_email(email)
+    if len(user) > 0:
+        errors.append("El usuario ya está registrado")
 
     if len(errors) > 0:
         return render_template("index.html", register_errors=errors)
-    
-    
     password = bcrypt.generate_password_hash(password).decode('utf-8')
+    Users.user_register(name_user, email, password)
     return redirect('/')
 
 @app.route('/login/singin', methods = ['POST',])
@@ -58,17 +57,16 @@ def singin():
     email = request.form['email']
     password = request.form['pass']
     errors = []
-    #ESTO SE USARA CUANDO ESTE LISTA EL ENLACE CON lA BASE DE DATOS 
-    #user = Usuario.select_by_email(email)
-    #if (len(user) != 1):
-    #    errors.append("Email no registrado. Registrese por favor")
-    #user = user[0]
-    #if not bcrypt.check_password_hash(user.password,password):
-    #    errors.append("El email y/o contraseña no corresponden")
-    #if len(errors) > 0:
-    #    return render_template("index.html", login_errors=errors)
-    #session["id"] = user.id
-    #session["nombre"] = f"{user.nombre} {user.apellido}"
+    user = Users.login_by_email(email)
+    if (len(user) != 1):
+        errors.append("Email no registrado. Registrese por favor")
+    user = user[0]
+    if not bcrypt.check_password_hash(user.password,password):
+        errors.append("El email y/o contraseña no corresponden")
+    if len(errors) > 0:
+        return render_template("index.html", login_errors=errors)
+    session["id"] = user.id
+    session["nombre"] = f"{user.nombre} {user.apellido}"
     
     return redirect('/')
 
