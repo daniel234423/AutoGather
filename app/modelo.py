@@ -16,7 +16,7 @@ def predict_image(img):
     pred = modeloConv2.predict(img)
     clase = np.argmax(pred[0])
     clases = ['auto', 'camioneta', 'moto']
-    print( clases[clase])
+    return( clases[clase])
 
 def color(img):
     img = np.array(img).astype(float) / 255
