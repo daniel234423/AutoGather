@@ -1,24 +1,26 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: black !important;
   height: 100vh;
   margin: 0;
 }
 
 .contenedor {
   width: 400px;
-  margin: 50px auto;
+  height: 70vh;
+  margin-top: 5vh !important;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
   padding: 20px;
   background-color: #292c37;
   border: 1px solid #292c37;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+hr {
+  width: 100%;
+  color: white;
 }
 
 .lr {
@@ -27,15 +29,15 @@ body {
   gap: 300px;
 }
 
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
 form {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+}
+form input {
+  width: 100%;
 }
 
 label {
@@ -43,7 +45,6 @@ label {
 }
 
 input {
-  width: 100%;
   height: 40px;
   margin-bottom: 20px;
   padding: 10px;
@@ -74,15 +75,8 @@ input[type="checkbox"] {
 
 .lbel {
   color: #fff;
-  display: flex;
-}
-
-.botones {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  font-size: smaller;
   width: 100%;
-  background-color: #292c37;
 }
 
 .submit {
@@ -100,13 +94,11 @@ input[type="checkbox"] {
   display: flex;
   height: 50px;
   width: 40%;
-  gap: 30px;
+  gap: 0px;
   align-items: center;
   justify-content: space-around;
-  color: #fff;
+  color: #fff !important;
   background-color: #292c37;
-  border: none;
-  outline: none;
   cursor: pointer;
   font-size: 16px;
   background-color: transparent;
@@ -116,12 +108,10 @@ input[type="checkbox"] {
 .btn.active {
   color: rgb(255, 255, 255);
   font-size: 60px;
-  opacity: 3;
 }
 
 .btn.inactive {
   color: #fff;
-  opacity: 0.5;
 }
 
 .btn:hover {
@@ -129,32 +119,15 @@ input[type="checkbox"] {
   color: #fff;
 }
 
-h6 {
-  color: #fff;
-}
-
 .mostrar {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 10px;
+  justify-content: end;
 }
 
-.mostrar h6 {
-  margin-right: 20px;
-}
-
-.contenedor {
-  max-width: 400px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 20px;
-}
-
-.formulario {
-  display: none;
-  margin-top: 20px;
-}
 .visible {
   display: block;
+}
+#loginForm {
+  padding-top: 15% !important;
 }
