@@ -16,8 +16,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Contrail+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'style/nav_style.css')}}" />
     <style>
-        body {
+        main {
             background-image: url("{{ url_for('static', filename='/img/MATRICULAAUTO-removebg-preview.png') }}") !important;
             background-size: 45% !important;
             background-position: center !important;
@@ -25,7 +26,6 @@
             height: 100vh;
             margin: 0;
             display: flex;
-            justify-content: center;
             align-items: center;
             background-color: #000000 !important;
         }
@@ -36,6 +36,9 @@
 <body>
 
 
+    {% block navbar %}
+    {% include "nav.html" %}
+    {% endblock navbar %}
     <main>
         <section class="container-fluid">
             <article class="container-red">
@@ -51,7 +54,7 @@
             </article>
             <article class="container-blue">
                 <h4>
-                    <h1>Descripcion</h1>
+                    <h1>Descripción</h1>
                 </h4>
                 <p> AutoGather es una plataforma web avanzada diseñada para analizar videos de vehículos utilizando
                     inteligencia artificial. La página permite a los usuarios subir videos de tráfico, y mediante un

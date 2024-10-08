@@ -19,7 +19,7 @@ def main():
 def contact():
     return render_template("contact.html")
 
-@app.route("/app")
+@app.route("/play_app")
 def aplicacion():
     info = Info.get_all()
     return render_template('app.html', info = info)
@@ -81,7 +81,7 @@ def upload_video():
     video_file.save(video_path)
     global video1
     video1 = cv.VideoCapture(video_path)
-    return redirect('/')
+    return redirect('/app')
 
 @app.route("/video")
 def video():

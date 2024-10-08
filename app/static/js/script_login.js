@@ -11,7 +11,7 @@ function showRegisterForm() {
                 <input type="checkbox" id="checkbox" name="checkbox">
             </section>
             <button type="button" class="submit" id="submitGeneral">Enviar</button>
-            <section class="botones">
+            <section class="botones" >
                 <button type="button" class="btn" id="loginBtn">Login</button>
                 <button type="button" class="btn" id="registerBtn">Register</button>
             </section>
@@ -35,8 +35,8 @@ function showLoginForm() {
             </section>
             <button type="button" id="submitLogin" style="background-color:#9f111b; height: 30px; width: 100px; margin-bottom: 15px; color: #fff; border-radius: 10px; box-shadow: -5px 5px 0 black; cursor: pointer;">Enviar</button>
             <section class="botones">
+            <button type="button" class="btn" id="loginBtnFromLogin">Login</button>
                 <button type="button" class="btn" id="registerBtnFromLogin">Register</button>
-                <button type="button" class="btn" id="loginBtnFromLogin">Login</button>
             </section>
         </form>
     `;
