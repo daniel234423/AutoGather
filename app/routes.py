@@ -28,34 +28,38 @@ def login():
     return render_template('login.html')
 
 
-@app.route('/login/register', methods = ['POST',])
+@app.route('/login/register', methods=['POST'])
 def register():
     name_user = request.form['name']
     email = request.form['email']
     password = request.form['pass']
+    
     errors = []
 
+    # Validaciones
     if not name_user or len(name_user) < 3:
-        errors.append("Nombre invalido")
-
+        errors.append("Nombre inválido")
     if not email or len(email) < 3:
-        errors.append("email invalido")
+        errors.append("Email inválido")
     
-    user = Users.login_by_email(email)
-    if len(user) > 0:
+    # Comprobar si el usuario ya está registrado
+    if Users.login_by_email(email):
         errors.append("El usuario ya está registrado")
 
-    if len(errors) > 0:
+    # Si hay errores, devolverlos
+    if errors:
         return render_template("index.html", register_errors=errors)
-    password = bcrypt.generate_password_hash(password).decode('utf-8')
-    Users.user_register(name_user, email, password)
+
+    # Registrar al nuevo usuario
+    hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+    Users.user_register(name_user, email, hashed_password)  # Asegúrate de que esto funcione correctamente
+
     return redirect('/')
 
 @app.route('/login/singin', methods = ['POST',])
 def singin():
-    name_user = request.form['name']
     email = request.form['email']
-    password = request.form['pass']
+    password = request.form['password']
     errors = []
     user = Users.login_by_email(email)
     if (len(user) != 1):
@@ -66,9 +70,13 @@ def singin():
     if len(errors) > 0:
         return render_template("index.html", login_errors=errors)
     session["id"] = user.id
-    session["nombre"] = f"{user.nombre} {user.apellido}"
-    
+    session["nombre"] = f"{user.name}"
+    print(f'{session["nombre"]}')
     return redirect('/')
+
+@app.route('/iniciar_sesion')
+def iniciar_sesion():
+    return render_template('iniciar-sesion.html')
 
 @app.route('/user')
 def usuario():
