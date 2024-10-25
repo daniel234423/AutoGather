@@ -1,8 +1,8 @@
-from config.db import connectToMySQL
+from ..config.db import connectToMySQL
 
 class Users:
     def __init__(self, data):
-        self.id = data['id_user']
+        self.id = data['id']
         self.name = data['username']
         self.email = data['email']
         self.password = data['password']
