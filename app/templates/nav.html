@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="AutoGather">
             <a class="navbar-brand" href="#">AutoGather</a>
-            <img src="static/img/image.png" alt="" class="img-fluid">
+            <img src="/static/img/image.png" alt="" class="img-fluid">
         </div>
         <div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -18,12 +18,18 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/play_app">Play App</a>
                     </li>
+                    {% if 'nombre' in session %}
+                    <p>hola {{ user.name}}</p>
+                    {% else %}
                     <li class="nav-item">
                         <a class="login-button" href="#">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" aria-disabled="true">Register</a>
                     </li>
+                    {% endif %}
+
+
                 </ul>
             </div>
         </div>
