@@ -21,8 +21,8 @@ class Info:
         return friends
     @classmethod
     def post_all(cls, matricula, tipo_vehiculo, color):
-        query = "insert into informacion (matricula, tipo_vehiculo, color) values (%s, %s, %s);"
+        query = "insert into date_cars (matricula, color, tipo_vehiculo) values (%s, %s, %s);"
         # asegúrate de llamar a la función connectToMySQL con el esquema al que te diriges
-        result = connectToMySQL('AutoGather').query_db(query, (matricula, tipo_vehiculo, color,))
+        result = connectToMySQL('AutoGather').query_db(query, (matricula, color, tipo_vehiculo,))
         return result
 

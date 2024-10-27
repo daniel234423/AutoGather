@@ -38,10 +38,10 @@ def register():
     if Users.login_by_email(email):
         errors.append("El usuario ya está registrado")
 
-    if errors:
+    if len(errors) > 0:
         return render_template("index.html", register_errors=errors)
-    hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
-    Users.user_register(name_user, email, hashed_password)
+    password = bcrypt.generate_password_hash(password).decode("utf-8")
+    user = Users.user_register(name_user, email, password)
     return redirect('/')
 
 @app.route('/login/singin', methods=['POST'])
@@ -58,17 +58,16 @@ def singin():
         errors.append("Email no registrado. Registrese por favor.")
     else:
         user = user[0]
-        print("Contraseña de Base de datos: ",user.password)
-        print(bcrypt.check_password_hash(user.password, password))
-        if not bcrypt.check_password_hash(user.password, password):
-            errors.append("El email y/o contraseña no corresponden")
-    
-    if errors:
-        return render_template("iniciar-sesion.html", login_errors=errors)
-
+        print(f"Contraseña de Base de datos: {user.password}",)
+        print(bcrypt.check_password_hash(user.password,password))
+    if not bcrypt.check_password_hash(user.password,password):
+        errors.append("El email y/o contraseña no corresponden")
     session["id"] = user.id
     session["nombre"] = user.name
-    return redirect('/play_app')
+    print(f"{session["nombre"]}")
+
+
+    return redirect('/')
 
 @app.route('/iniciar_sesion')
 def iniciar_sesion():
