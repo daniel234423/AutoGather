@@ -10,9 +10,6 @@ app = crear_app()
 bcrypt = Bcrypt(app)
 video1 = None
 
-
-
-
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
@@ -20,58 +17,58 @@ def contact():
 @app.route("/play_app")
 def aplicacion():
     info = Info.get_all()
-    return render_template('app.html', info = info)
+    return render_template('app.html', info=info)
+
 @app.route('/login')
 def login():
     return render_template('login.html')
-
 
 @app.route('/login/register', methods=['POST'])
 def register():
     name_user = request.form['name']
     email = request.form['email']
     password = request.form['pass']
-    
+    print(password)
     errors = []
 
-    # Validaciones
     if not name_user or len(name_user) < 3:
         errors.append("Nombre inválido")
     if not email or len(email) < 3:
         errors.append("Email inválido")
-    
-    # Comprobar si el usuario ya está registrado
     if Users.login_by_email(email):
         errors.append("El usuario ya está registrado")
 
-    # Si hay errores, devolverlos
     if errors:
         return render_template("index.html", register_errors=errors)
-
-    # Registrar al nuevo usuario
     hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
-    Users.user_register(name_user, email, hashed_password)  # Asegúrate de que esto funcione correctamente
-
+    Users.user_register(name_user, email, hashed_password)
     return redirect('/')
 
-@app.route('/login/singin', methods = ['POST',])
+@app.route('/login/singin', methods=['POST'])
 def singin():
     email = request.form['email']
-    password = request.form['password']
+    password = request.form['password'].strip()
     errors = []
     user = Users.login_by_email(email)
     
-    if (len(user) != 1):
-        errors.append("Email no registrado. Registrese por favor")
-    user = user[0]
-    print(user.name)
-    if not bcrypt.check_password_hash(user.password,password):
-        errors.append("El email y/o contraseña no corresponden")
-    if len(errors) > 0:
-        return render_template("index.html", login_errors=errors)
+    print(f"Email ingresado: {email}")
+    print(f"Contraseña ingresada: {password}") 
+    
+    if not user or len(user) != 1:
+        errors.append("Email no registrado. Registrese por favor.")
+    else:
+        user = user[0]
+        print("Contraseña de Base de datos: ",user.password)
+        print(bcrypt.check_password_hash(user.password, password))
+        if not bcrypt.check_password_hash(user.password, password):
+            errors.append("El email y/o contraseña no corresponden")
+    
+    if errors:
+        return render_template("iniciar-sesion.html", login_errors=errors)
+
     session["id"] = user.id
-    session["nombre"] = f"{user.name}"
-    return redirect('/')
+    session["nombre"] = user.name
+    return redirect('/play_app')
 
 @app.route('/iniciar_sesion')
 def iniciar_sesion():
@@ -84,7 +81,7 @@ def usuario():
 @app.route("/upload_video", methods=["POST"])
 def upload_video():
     video_file = request.files["video"]
-    video_path = "app/static/video/" + video_file.filename
+    video_path = "app/static/video" + video_file.filename
     video_file.save(video_path)
     global video1
     video1 = cv.VideoCapture(video_path)
