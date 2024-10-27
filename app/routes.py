@@ -10,9 +10,7 @@ app = crear_app()
 bcrypt = Bcrypt(app)
 video1 = None
 
-@app.route("/")
-def main():
-    return render_template("index.html")
+
 
 
 @app.route("/contact")
@@ -62,16 +60,17 @@ def singin():
     password = request.form['password']
     errors = []
     user = Users.login_by_email(email)
+    
     if (len(user) != 1):
         errors.append("Email no registrado. Registrese por favor")
     user = user[0]
+    print(user.name)
     if not bcrypt.check_password_hash(user.password,password):
         errors.append("El email y/o contraseña no corresponden")
     if len(errors) > 0:
         return render_template("index.html", login_errors=errors)
     session["id"] = user.id
     session["nombre"] = f"{user.name}"
-    print(f'{session["nombre"]}')
     return redirect('/')
 
 @app.route('/iniciar_sesion')
@@ -89,8 +88,12 @@ def upload_video():
     video_file.save(video_path)
     global video1
     video1 = cv.VideoCapture(video_path)
-    return redirect('/app')
+    return redirect('/play_app')
 
 @app.route("/video")
 def video():
     return Response(Generate_Frame(video1), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route("/")
+def main():
+    return render_template("index.html")
