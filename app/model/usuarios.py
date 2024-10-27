@@ -21,6 +21,7 @@ class Users:
         """
         results = connectToMySQL("AutoGather").query_db(query)
         user = []
-        for users in results:
-            user.append(cls(users))
+        if results:  # Verificar si hay resultados
+            for user_data in results:
+                user.append(cls(user_data))
         return user
