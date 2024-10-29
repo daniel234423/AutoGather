@@ -14,7 +14,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <div class="AutoGather">
-                <a class="navbar-brand" href="#">AutoGather</a>
+                <a class="navbar-brand" href="/">AutoGather</a>
                 <img src="/static/img/image.png" alt="" class="img-fluid">
             </div>
             <div>
@@ -26,24 +26,32 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Datos</a>
+                            <a class="nav-link" aria-current="page" href="/datos">Datos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/play_app">Play App</a>
                         </li>
                         {% if 'nombre' in session %}
-                        <li class="nav-item">
-                            <p class="nav-link">Hola, {{ session['nombre'] }}</p>
+                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="{{ url_for('static', filename='img/user_nav.png') }}" alt="Mi Imagen"
+                                    style="width: 100px; height: 90px;">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-start">
+                                <li><a class="dropdown-item" href="/user">Perfil</a></li>
+                                <li><a class="dropdown-item" href="/logout">Cerrar sesion</a></li>
+                                <li><a class="dropdown-item" href="#">Editar perfil</a></li>
+
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/logout">Cerrar sesión</a>
-                        </li>
+
                         {% else %}
                         <li class="nav-item">
-                            <a class="login-button nav-link" href="/login">Login</a>
+                            <a class="login-button nav-link" href="/iniciar_sesion">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">Register</a>
+                            <a class="nav-link" href="/login">register</a>
                         </li>
                         {% endif %}
                     </ul>
@@ -52,7 +60,9 @@
         </div>
     </nav>
     <main>
+
         {% block main %}
+
         {% endblock main %}
     </main>
 

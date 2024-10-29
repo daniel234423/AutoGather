@@ -1,50 +1,11 @@
-nav {
-  background-color: rgb(5, 5, 5);
-}
-.navbar-brand {
-  color: white !important;
-}
-
-* {
-  padding: 0;
-  margin: 0;
-}
-
 body {
-  background-color: black;
+  background-color: black !important;
 }
 
 * {
   padding: 0;
   margin: 0;
-}
-
-section {
-  display: flex;
-  margin-top: 20px;
-  margin-bottom: 0%;
-  justify-content: space-around;
-  align-items: center;
-}
-section img {
-  width: 50%;
-}
-article {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-}
-form {
-  display: flex;
-  flex-direction: column;
-}
-form input {
-  margin-bottom: 2%;
-}
-form button {
-  width: 40%;
-  color: white;
-  background-color: black;
+  color: #cccccc;
 }
 
 .contai {
@@ -101,31 +62,4 @@ form button {
   align-items: center;
   gap: 30px;
   justify-content: center;
-}
-
-.item_nav {
-  list-style: none;
-  color: #fff;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-nav ul {
-  display: flex;
-  justify-content: center;
-}
-nav {
-  background-color: black !important  ;
-}
-
-nav ul li a {
-  background-color: #fff;
-  color: white !important;
-  text-decoration: none;
-  border-radius: 50% 10% 50% 10% / 10% 50% 10% 50%;
-  cursor: pointer;
-}
-table {
-  width: 40%;
 }

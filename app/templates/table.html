@@ -1,28 +1,28 @@
-<section class="table-responsive">
-    <table class="table ">
-        <thead>
-            <tr>
-                <th scope="row">Matricula</th>
-                {% for matriculas in info %}
-                <th>{{matriculas.matricual}}</th>
-                {% endfor %}
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">Color</th>
-                {% for color in info %}
-                <th>{{color.color}}</th>
-                {% endfor %}
-            </tr>
-            <tr>
-                <th scope="row">Tipo de Vheiculo</th>
-                {% for vheiculos in info %}
-                <th>{{vheiculos.tipo_vehiculo}}</th>
-                {% endfor %}
-            </tr>
-
-        </tbody>
-
-    </table>
-</section>
+<table>
+    <thead>
+        <tr>
+            <th>Tipo de Vehículo</th>
+            <th>Patente</th>
+            <th>Color del Vehículo</th>
+            <th>Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for vehiculo in info %}
+        <tr>
+            <td>{{ vehiculo.color }}</td>
+            <td>{{ vehiculo.tipo_vehiculo }}</td>
+            <td>{{ vehiculo.matricual }}</td>
+            <td>
+                <form action="/deleted_app" method="post">
+                    <input type="hidden" name="id" value="{{ vehiculo.id }}">
+                    <a href="#" onclick="this.parentNode.submit()">
+                        <img src="{{ url_for('static', filename='img/delete.png') }}" alt="Mi Imagen"
+                            style="width: 50px; height: 60px;">
+                    </a>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

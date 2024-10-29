@@ -1,0 +1,56 @@
+hr {
+  background-color: white;
+  height: 5%;
+  width: 100%;
+  margin-bottom: 1%;
+}
+#contenedor_usuarios {
+  background-color: black;
+  width: 100%;
+  color: #fff;
+  text-align: start;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.separador {
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+#contenedor_datos {
+  width: 95%;
+  margin: 0 auto;
+  background-color: #9f111b;
+  color: #fff;
+}
+
+table {
+  width: 100%;
+  height: auto;
+  border-collapse: collapse;
+  background-color: #9f111b;
+}
+th,
+td {
+  border: 1px solid #fff;
+  text-align: center;
+  color: white;
+  padding: 12px;
+}
+th {
+  position: relative;
+}
+th::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 2px;
+  background-color: white;
+  margin: 8px auto 0;
+}

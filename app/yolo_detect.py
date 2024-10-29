@@ -5,13 +5,10 @@ import cv2
 import numpy 
 model = YOLO('app/static/train3/weights/last.pt')
 model2 = YOLO('/app/static/train3/weights/yolov8n.pt')
-cap = cv2.VideoCapture('app/static/video/uni.mp4')
 
 
 
-def get_matricula(video):
-    while True:
-        ret, frame = video.read()
+def get_matricula(frame, ret):
         if not ret:pass
         results = model(frame)
         placas = []
@@ -26,17 +23,12 @@ def get_matricula(video):
                     cv2.imwrite('frame.jpg', chosen_sector)
                     matricula = cv2.imread('frame.jpg')
                     datos = pytesseract.image_to_string(matricula,  config="--psm 11")
-                    if re.search(placa_format, datos):
+                    
+                    if re.search(placa_format, datos) or re.search(placa_format_cl, datos):
                         print(datos)
                         if datos.strip() not in placas:
                             placas.append(datos.strip())
-                            print(placas)
-            print(placas)
-            cv2.imshow('Detección de Objetos', frame)
-        if cv2.waitKey(1) & 0xFF  == ord('s'):
-            break
-    video.release()
-    cv2.destroyAllWindows()
+                            return(placas)
 
 
 def get_car_frame(video):
@@ -57,5 +49,3 @@ def get_car_frame(video):
             break
     video.release()
     cv2.destroyAllWindows()
-
-get_car_frame(cap)

@@ -3,8 +3,77 @@
 Usuario
 {% endblock %}
 {% block head %}
-<link rel="stylesheet" href="{{url_for('static', filename='style/nav_style.css')}}" />
+<link rel="stylesheet" href="{{url_for('static', filename = 'style/style.css')}}" />
+<link rel="shortcut icon" href="app/auth/templates/favicon.icofavicon.ico" type="image/x-icon">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+<link rel="stylesheet" href="{{url_for('static', filename = 'style/nav_style.css')}}" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Contrail+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{url_for('static', filename = 'style/style_user.css')}}" />
+
 
 {% endblock %}
 {% block main %}
+{% if 'id' in session %}
+<section id="contenedor_usuarios">
+    <article>
+        <img src="{{ url_for('static', filename='img/User_gris.png') }}" alt="Usuario_Gris">
+    </article>
+    <article class="separador">
+        <h1>User_Name: <span>{{name}}</span></h1>
+        <h1>User_ID: <span>{{id}}</span></h1>
+    </article>
+    <article class="separador">
+        <h1>User_Email: <span>{{email}}</span></h1>
+        <h1>User: <span>ect...</span></h1>
+    </article>
+</section>
+<hr style="border: 1px solid white; width: 100%;">
+<section id="contenedor_datos">
+    <table>
+        <thead>
+            <tr>
+                <th>Matrícula</th>
+                <th>Color</th>
+                <th>Tipo de Vehículo</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for vehiculo in info %}
+            <tr>
+                <td>{{ vehiculo.color }}</td>
+                <td>{{ vehiculo.tipo_vehiculo }}</td>
+                <td>{{ vehiculo.matricual }}</td>
+                <td>
+                    <form action="/deleted" method="post">
+                        <input type="hidden" name="id" value="{{ vehiculo.id }}">
+                        <a href="#" onclick="this.parentNode.submit()">
+                            <img src="{{ url_for('static', filename='img/delete.png') }}" alt="Mi Imagen"
+                                style="width: 50px; height: 60px;">
+                        </a>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+</section>
+{% else %}
+<section id="sesion_non">
+    <h1>Inicia sesión antes de usar la aplicación.</h1>
+    <article id="article_no_sesion">
+        <a href="/login">Registrarse</a>
+        <a href="/iniciar_sesion">Iniciar sesion</a>
+    </article>
+</section>
+{% endif %}
 {% endblock %}

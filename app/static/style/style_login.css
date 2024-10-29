@@ -1,7 +1,7 @@
 body {
   font-family: Arial, sans-serif;
   background-color: black !important;
-  height: 100vh;
+  height: 100%;
   margin: 0;
 }
 
@@ -19,8 +19,14 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 hr {
+  height: 10%;
   width: 100%;
-  color: white;
+  margin: 0;
+  color: white !important;
+}
+.botones {
+  width: 100%;
+  border-top: 1px solid white;
 }
 
 .lr {
@@ -47,30 +53,29 @@ label {
 input {
   height: 40px;
   margin-bottom: 20px;
-  padding: 10px;
   border: 1px solid #9f111b;
   border-radius: 5px;
   margin: 10px 0;
-  padding: 10px;
 }
 
 input[type="text"] {
   background-color: #9f111b;
   border-color: black;
+  padding: 10px;
 }
 
 input[type="email"] {
   background-color: #9f111b;
   border-color: black;
+
+  padding: 10px;
 }
 
 input[type="password"] {
   border-color: black;
-  background-color: #9f111b;
-}
 
-input[type="checkbox"] {
-  height: 20px;
+  padding: 10px;
+  background-color: #9f111b;
 }
 
 .lbel {
@@ -83,25 +88,22 @@ input[type="checkbox"] {
   background-color: #9f111b;
   height: 30px;
   width: 100px;
-  margin-bottom: 15px;
+  text-align: center !important;
+  display: flex !important;
   color: #fff;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: -5px 5px 0 black;
   cursor: pointer;
 }
 
 .btn {
   display: flex;
-  height: 50px;
   width: 40%;
-  gap: 0px;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   color: #fff !important;
-  background-color: #292c37;
   cursor: pointer;
   font-size: 16px;
-  background-color: transparent;
   transition: color 0.3s, opacity 0.3s;
 }
 

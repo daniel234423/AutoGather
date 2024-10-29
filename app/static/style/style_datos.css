@@ -1,0 +1,84 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: black; /* Fondo de la página */
+}
+main {
+  margin-top: 3%;
+}
+table {
+  width: 90%;
+  margin: 20px auto; /* Centrar la tabla */
+  border-collapse: collapse; /* Combinar bordes */
+}
+
+.red_tabla {
+  background-color: #9f111b;
+}
+
+.contenedor_red {
+  background-color: #9f111b;
+}
+
+th,
+td {
+  border: 1px solid black; /* Bordes verticales normales */
+  padding: 15px;
+  color: #fff; /* Color del texto */
+  text-align: center; /* Centrar el texto */
+}
+
+th {
+  background-color: #9f111b; /* Fondo de los encabezados de la primera tabla */
+}
+
+tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Líneas horizontales transparentes */
+}
+
+h2 {
+  color: #fff; /* Color del encabezado */
+}
+
+.button-container {
+  margin-top: 20px; /* Espacio arriba del botón */
+  padding: 20px; /* Espacio interior del contenedor */
+  border: 3px solid black; /* Borde del contenedor */
+  display: inline-block; /* Hace que el contenedor sea del tamaño del contenido */
+}
+
+.azul-button {
+  background-color: blue; /* Fondo azul del botón */
+  color: white; /* Color del texto */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.azul-button:hover {
+  background-color: darkblue; /* Efecto hover */
+}
+
+.blue-table {
+  background-color: #092655; /* Fondo de la tabla azul */
+}
+
+.blue-table th {
+  background-color: #092655; /* Fondo de los encabezados de la segunda tabla */
+}
+
+.rojo-button {
+  background-color: red; /* Fondo rojo del nuevo botón */
+  color: #fff; /* Color del texto */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+.rojo-button:hover {
+  background-color: darkred; /* Efecto hover para el botón rojo */
+}

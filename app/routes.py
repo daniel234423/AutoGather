@@ -14,10 +14,7 @@ video1 = None
 def contact():
     return render_template("contact.html")
 
-@app.route("/play_app")
-def aplicacion():
-    info = Info.get_all()
-    return render_template('app.html', info=info)
+
 
 @app.route('/login')
 def login():
@@ -64,10 +61,10 @@ def singin():
         errors.append("El email y/o contraseña no corresponden")
     session["id"] = user.id
     session["nombre"] = user.name
+    session["email"] = user.email
     print(f"{session["nombre"]}")
-
-
     return redirect('/')
+
 
 @app.route('/iniciar_sesion')
 def iniciar_sesion():
@@ -75,7 +72,12 @@ def iniciar_sesion():
 
 @app.route('/user')
 def usuario():
-    return render_template('user.html')
+    name = session["nombre"]
+    id = session["id"]
+    email = session["email"]
+    info = Info.get_all_by_id(session["id"])
+    
+    return render_template('user.html', info=info, name=name, id=id, email=email)
 
 @app.route("/upload_video", methods=["POST"])
 def upload_video():
@@ -88,7 +90,39 @@ def upload_video():
 
 @app.route("/video")
 def video():
-    return Response(Generate_Frame(video1), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(Generate_Frame(video1, session["id"]), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route("/play_app")
+def aplicacion():
+    if "id" not in session:
+        return render_template("sin_sesion.html") 
+    info = Info.get_all_by_id(session["id"])
+    return render_template('app.html', info=info)
+
+@app.route("/deleted", methods=["POST"])
+def deleted():
+    id = request.form["id"]
+    Info.delet_by_id(id)
+    return redirect("/user")
+@app.route("/deleted_app", methods=["POST"])
+def deleted_app():
+    id = request.form["id"]x
+    Info.delet_by_id(id)
+    return redirect("/play_app")
+
+
+@app.route("/datos")
+def datos():
+    if "id" not in session:
+        return render_template("sin_sesion.html") 
+    info1 = Info.get_all_by_id(session["id"])
+    info2 = Info.get_all()
+    return render_template("datos.html", info1=info1, info2=info2)
+
+@app.route("/logout", methods=["GET"])
+def logout():
+    session.clear()
+    return redirect("/")
 
 @app.route("/")
 def main():

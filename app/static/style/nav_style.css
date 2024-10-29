@@ -6,14 +6,14 @@
 }
 .navbar-brand {
   font-size: 60px !important;
-  color: #fff !important;
+  color: #cccccc !important;
   margin: 0 !important;
   padding: 10px 0 !important;
   display: block !important;
   margin-left: 90px !important;
 }
 .navbar .nav-link {
-  color: #cccccc !important;
+  color: #cccccc;
   font-size: 24px !important;
   padding: 10px 15px !important;
 }
@@ -51,4 +51,13 @@
   position: absolute;
   margin-top: 3%;
   margin-left: 90px !important;
+}
+.buton_user {
+  background-color: transparent !important;
+  display: flex;
+  justify-content: end;
+  width: 50%;
+}
+.buton_user img {
+  width: 10%;
 }
