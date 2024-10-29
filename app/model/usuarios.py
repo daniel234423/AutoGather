@@ -34,3 +34,8 @@ class Users:
             for car_data in results:
                 datos.append(cls(car_data))
         return datos
+    @classmethod
+    def update_name(cls, name, id):
+        query = f"update user set username = {name} where id={id}"
+        result = connectToMySQL("AutoGather").query_db(query)
+        return result

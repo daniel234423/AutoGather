@@ -33,15 +33,14 @@
                         </li>
                         {% if 'nombre' in session %}
                         <li class="nav-item dropdown">
-                        <li class="nav-item dropdown">
                             <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="{{ url_for('static', filename='img/user_nav.png') }}" alt="Mi Imagen"
                                     style="width: 100px; height: 90px;">
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-start">
+                            <ul class="dropdown-menu dropdown-menu-start text-white">
                                 <li><a class="dropdown-item" href="/user">Perfil</a></li>
                                 <li><a class="dropdown-item" href="/logout">Cerrar sesion</a></li>
-                                <li><a class="dropdown-item" href="#">Editar perfil</a></li>
+                                <li><a class="dropdown-item" href="/update">Editar perfil</a></li>
 
                             </ul>
                         </li>

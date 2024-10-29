@@ -10,7 +10,7 @@ hr {
   color: #fff;
   text-align: start;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   text-align: center;
   align-items: center;
   gap: 20px;
@@ -21,6 +21,13 @@ hr {
   display: flex;
   flex-direction: column;
   gap: 30px;
+}
+.separador p {
+  font-size: x-large;
+}
+
+.separador p a {
+  text-decoration: none;
 }
 
 #contenedor_datos {

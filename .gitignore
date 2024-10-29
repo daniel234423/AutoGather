@@ -4,3 +4,5 @@ app\__pycache__
 .env/
 app/config/__pycache__/
 app/model/__pycache__/
+app/model/ModeloAuto.keras
+app/model/ModeloColores.keras

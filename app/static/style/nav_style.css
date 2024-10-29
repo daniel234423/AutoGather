@@ -4,6 +4,15 @@
 .navbar-nav {
   align-items: center;
 }
+.dropdown-menu {
+  background-color: #292c37 !important;
+}
+.dropdown-item {
+  color: white !important;
+}
+.dropdown-item:hover {
+  background-color: #292c37 !important;
+}
 .navbar-brand {
   font-size: 60px !important;
   color: #cccccc !important;

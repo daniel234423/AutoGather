@@ -1,5 +1,5 @@
 import cv2
-from .modelo import predict_image
+from .modelo import predict_image, Color
 from .yolo_detect import get_matricula
 from .model.queries import Info
 
@@ -23,9 +23,10 @@ def Generate_Frame(video, id_user):
             cv2.imwrite('app/static/img/hola.jpg', frame)
             img = cv2.imread('app/static/img/hola.jpg')
             model = predict_image(img)
+            color = Color(img)
             print(model)
             print("patente", placa)
-            Info.post_all(matriculasss[-1], model, 'hola', id_user)
+            Info.post_all(matriculasss[-1], model, color, id_user)
             
         (flag, encodedImage) = cv2.imencode(".jpg", frame)
         # Produce un marco de datos multipart/form-data con una imagen JPEG codificada

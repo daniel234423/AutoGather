@@ -106,7 +106,7 @@ def deleted():
     return redirect("/user")
 @app.route("/deleted_app", methods=["POST"])
 def deleted_app():
-    id = request.form["id"]x
+    id = request.form["id"]
     Info.delet_by_id(id)
     return redirect("/play_app")
 
@@ -123,6 +123,7 @@ def datos():
 def logout():
     session.clear()
     return redirect("/")
+
 
 @app.route("/")
 def main():
