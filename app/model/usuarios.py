@@ -39,3 +39,12 @@ class Users:
         query = f"update user set username = {name} where id={id}"
         result = connectToMySQL("AutoGather").query_db(query)
         return result
+    @classmethod
+    def get_all(cls):
+        query = f"SELECT * FROM user"
+        results = connectToMySQL("AutoGather").query_db(query)
+        user = []
+        if results:  # Verificar si hay resultados
+            for user_data in results:
+                user.append(cls(user_data))
+        return user

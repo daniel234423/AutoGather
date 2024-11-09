@@ -29,6 +29,7 @@ Datos
             <th>Color del Auto</th>
             <th>Tipo de Vehículo</th>
             <th>Patente</th>
+            <th>Eliminar</th>
         </tr>
     </thead>
     <tbody>
@@ -37,6 +38,15 @@ Datos
             <td>{{ vehiculo.color }}</td>
             <td>{{ vehiculo.tipo_vehiculo }}</td>
             <td>{{ vehiculo.matricual }}</td>
+            <td>
+                <form action="/deleted" method="post">
+                    <input type="hidden" name="id" value="{{ vehiculo.id }}">
+                    <a href="#" onclick="this.parentNode.submit()">
+                        <img src="{{ url_for('static', filename='img/delete.png') }}" alt="Mi Imagen"
+                            style="width: 50px; height: 60px;">
+                    </a>
+                </form>
+            </td>
         </tr>
         {% endfor %}
 
@@ -60,6 +70,7 @@ Datos
     <tbody>
         {% for vehiculo2 in info2 %}
         <tr>
+
             <td>{{ vehiculo2.color }}</td>
             <td>{{ vehiculo2.tipo_vehiculo }}</td>
             <td>{{ vehiculo2.matricual }}</td>
