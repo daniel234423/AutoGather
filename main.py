@@ -1,5 +1,5 @@
-from flask import Flask
 from app.routes import app
 
-app = app
-app.run(debug=True)
+if __name__=='__main__':
+    app = app
+    app.run(debug=True)     

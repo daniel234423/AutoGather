@@ -1,0 +1,135 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: black !important;
+  height: 100%;
+  margin: 0;
+}
+
+.contenedor {
+  width: 400px;
+  height: 70vh;
+  margin-top: 5vh !important;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #292c37;
+  border: 1px solid #292c37;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+hr {
+  height: 10%;
+  width: 100%;
+  margin: 0;
+  color: white !important;
+}
+.botones {
+  width: 100%;
+  border-top: 1px solid white;
+}
+
+.lr {
+  display: flex;
+  align-items: center;
+  gap: 300px;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+form input {
+  width: 100%;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+input {
+  height: 40px;
+  margin-bottom: 20px;
+  border: 1px solid #9f111b;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+input[type="text"] {
+  background-color: #9f111b;
+  border-color: black;
+  padding: 10px;
+}
+
+input[type="email"] {
+  background-color: #9f111b;
+  border-color: black;
+
+  padding: 10px;
+}
+
+input[type="password"] {
+  border-color: black;
+
+  padding: 10px;
+  background-color: #9f111b;
+}
+
+.lbel {
+  color: #fff;
+  font-size: smaller;
+  width: 100%;
+}
+
+.submit {
+  background-color: #9f111b;
+  height: 30px;
+  width: 100px;
+  text-align: center !important;
+  display: flex !important;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: -5px 5px 0 black;
+  cursor: pointer;
+}
+
+.btn {
+  display: flex;
+  width: 40%;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff !important;
+  cursor: pointer;
+  font-size: 16px;
+  transition: color 0.3s, opacity 0.3s;
+}
+
+.btn.active {
+  color: rgb(255, 255, 255);
+  font-size: 60px;
+}
+
+.btn.inactive {
+  color: #fff;
+}
+
+.btn:hover {
+  font-size: 20px;
+  color: #fff;
+}
+
+.mostrar {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.visible {
+  display: block;
+}
+#loginForm {
+  padding-top: 15% !important;
+}

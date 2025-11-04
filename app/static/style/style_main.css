@@ -1,0 +1,45 @@
+:root {
+  --main-ft-family: "Contrail One", sans-serif;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.container-red {
+  background-color: #9f111b;
+  font-family: var(--main-ft-family);
+  font-weight: 400;
+  font-style: normal;
+  width: 30%;
+  height: auto;
+  padding: 20px;
+  border-radius: 25px;
+  color: white;
+  font-size: medium;
+  text-align: center;
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  transform: translateX(0);
+  margin: 0 20px;
+}
+
+.container-blue {
+  background-color: #292c37;
+  font-family: var(--main-ft-family);
+  font-weight: 400;
+  font-style: normal;
+  width: 30%;
+  height: auto;
+  padding: 20px;
+  border-radius: 25px;
+  color: white;
+  font-size: medium;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateX(0);
+  margin: 0 20px;
+}

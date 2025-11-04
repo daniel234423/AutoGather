@@ -5,9 +5,9 @@ import cv2 as cv
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
-modeloConv2 = load_model(r'app\model\ModeloAuto.keras', compile=False)
-modeloConv2color = load_model(r'app\model\ModeloColores.keras', compile=False)
-img = cv.imread('app/static/img/negro.jpg')
+modeloConv2 = load_model('app/model/ModeloAuto.keras', compile=False)
+modeloConv2color = load_model('app/model/ModeloColores.keras', compile=False)
+img = cv.imread('app/static/dataset/camionetas/th51.jpg')
 
 def predict_image(img):
     img = np.array(img).astype(float) / 255
@@ -15,13 +15,13 @@ def predict_image(img):
     img = np.expand_dims(img, axis=0)
     pred = modeloConv2.predict(img)
     clase = np.argmax(pred[0])
-    clases = ['camioneta', 'auto', 'moto']
-    return clases[clase]
+    clases = ['auto', 'camioneta', 'moto']
+    return( clases[clase])
 
-def color(img):
+def Color(img):
     img = np.array(img).astype(float) / 255
-    img = cv.resize(img, (224, 224))
-    img = np.expand_dims(img, axis=0)
+    img = cv.resize(img, (240, 240))
+    img = np.expand_dims(img, axis=0)  
     pred = modeloConv2color.predict(img)
     clase = np.argmax(pred[0])
     clases = ['rojo', 'blanco', 'gris', 'negro', 'azul']
